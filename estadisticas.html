@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ECO-ALERTA - Estadísticas Ambientales</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #000 url('portada.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+      text-align: center;
+    }
+
+    header {
+      background: rgba(0, 0, 0, 0.8);
+      padding: 1rem;
+    }
+
+    header h1 { color: #76c893; margin: 0; font-size: 2rem; }
+    header p { margin: 0.5rem 0; }
+
+    nav {
+      background: rgba(0, 0, 0, 0.7);
+      padding: 1rem;
+    }
+
+    nav a {
+      color: #76c893;
+      text-decoration: none;
+      margin: 0 12px;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: #7CFC00;
+    }
+
+    section {
+      padding: 2rem;
+      background: rgba(0,0,0,0.6);
+      margin: 25px auto;
+      border-radius: 15px;
+      width: 90%;
+      max-width: 1000px;
+    }
+
+    .chart-container {
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    canvas {
+      max-width: 350px;
+      width: 100%;
+      height: auto,
+      margin: 0 auto;
+      display: block;
+    }
+
+    .info {
+      background: rgba(0,0,0,0.5);
+      padding: 15px;
+      border-radius: 10px;
+      text-align: left;
+      max-width: 800px;
+      margin: 15px auto 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 10px;
+    }
+
+    .info p { margin: 5px 0; }
+
+    footer {
+      background: rgba(0,0,0,0.8);
+      padding: 1rem;
+      margin-top: 2rem;
+      color: #76c893;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>ECO-ALERTA - Estadísticas de Daños Ambientales (2020-2025)</h1>
+  <p>Concientizando sobre el impacto ambiental en Bolivia 🌎</p>
+</header>
+
+<nav>
+  <a href="index.html">Inicio</a>
+  <a href="danos.html">Daños Ambientales</a>
+  <a href="estadisticas.html">Estadísticas</a>
+  <a href="prevenciones.html">Prevenciones</a>
+  <a href="eco-tips.html">Eco-Tips</a>
+  <a href="eco-quiz.html">Eco-Quiz</a>
+  <a href="noticias.html">Noticias</a>
+  <a href="galeria.html">Galería</a>
+  <a href="contacto.html">Contáctanos</a>
+</nav>
+
+<!-- Cada sección con gráfico y datos -->
+<section>
+  <h2>🌳 Deforestación (2020 - 2025)</h2>
+  <div class="chart-container">
+    <canvas id="deforestacion"></canvas>
+    <div class="info">
+      <p><b>Personas afectadas:</b> 28,000</p>
+      <p><b>Muertes humanas:</b> 9</p>
+      <p><b>Fauna afectada:</b> 120,000 animales</p>
+      <p><b>Lugar:</b> Santa Cruz, Beni, Pando</p>
+      <p><b>Causa:</b> Expansión agrícola, tala ilegal y sequías</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>🔥 Incendios Forestales (2020 - 2025)</h2>
+  <div class="chart-container">
+    <canvas id="incendios"></canvas>
+    <div class="info">
+      <p><b>Personas afectadas:</b> 35,000</p>
+      <p><b>Muertes humanas:</b> 21</p>
+      <p><b>Fauna afectada:</b> 250,000 animales</p>
+      <p><b>Lugar:</b> Chiquitanía, Beni, Amazonía</p>
+      <p><b>Causa:</b> Quemas agrícolas descontroladas y sequías prolongadas</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>💧 Contaminación (2020 - 2025)</h2>
+  <div class="chart-container">
+    <canvas id="contaminacion"></canvas>
+    <div class="info">
+      <p><b>Personas afectadas:</b> 40,000</p>
+      <p><b>Muertes humanas:</b> 18</p>
+      <p><b>Fauna afectada:</b> 80,000 animales</p>
+      <p><b>Lugar:</b> La Paz, Cochabamba, Oruro</p>
+      <p><b>Causa:</b> Residuos sólidos, mercurio y emisiones industriales</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>🌊 Inundaciones y Fenómenos Climáticos (2020 - 2025)</h2>
+  <div class="chart-container">
+    <canvas id="inundaciones"></canvas>
+    <div class="info">
+      <p><b>Personas afectadas:</b> 25,000</p>
+      <p><b>Muertes humanas:</b> 15</p>
+      <p><b>Fauna afectada:</b> 35,000 animales</p>
+      <p><b>Lugar:</b> Beni, Pando, La Paz</p>
+      <p><b>Causa:</b> Lluvias intensas, desbordes y pérdida de cobertura vegetal</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>⚒️ Minería Ilegal (2020 - 2025)</h2>
+  <div class="chart-container">
+    <canvas id="mineria"></canvas>
+    <div class="info">
+      <p><b>Personas afectadas:</b> 18,000</p>
+      <p><b>Muertes humanas:</b> 10</p>
+      <p><b>Fauna afectada:</b> 25,000 animales</p>
+      <p><b>Lugar:</b> Riberalta, Madre de Dios, Tipuani</p>
+      <p><b>Causa:</b> Contaminación con mercurio y destrucción de ríos amazónicos</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2025 ECO-ALERTA | Estadísticas Ambientales de Bolivia
+</footer>
+
+<script>
+function createPieChart(id, labels, data, colors, labelName, unit) {
+  new Chart(document.getElementById(id), {
+    type: 'pie',
+    data: { labels: labels, datasets: [{ label: labelName, data: data, backgroundColor: colors }] },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: { position: 'right', labels: { color: '#fff', boxWidth: 20 } },
+        tooltip: {
+          callbacks: {
+            label: function(context) {
+              let total = context.dataset.data.reduce((a,b)=>a+b,0);
+              let value = context.raw;
+              let percentage = ((value/total)*100).toFixed(1);
+              return `${context.label}: ${value} ${unit} (${percentage}%)`;
+            }
+          }
+        }
+      }
+    }
+  });
+}
+
+// Crear todas las gráficas
+createPieChart('deforestacion', ['2020','2021','2022','2023','2024','2025'], [200000,250000,300000,400000,700000,800000], ['#4CAF50','#66BB6A','#81C784','#A5D6A7','#C8E6C9','#E8F5E9'], 'Hectáreas perdidas', 'ha');
+createPieChart('incendios', ['2020','2021','2022','2023','2024','2025'], [1500000,2000000,2500000,3300000,12000000,8000000], ['#D32F2F','#F44336','#E57373','#FF8A65','#FFAB91','#FFE0B2'], 'Hectáreas quemadas', 'ha');
+createPieChart('contaminacion', ['2020','2021','2022','2023','2024','2025'], [50,60,70,90,110,130], ['#1E88E5','#42A5F5','#64B5F6','#90CAF9','#BBDEFB','#E3F2FD'], 'Índice relativo', '');
+createPieChart('inundaciones', ['2020','2021','2022','2023','2024','2025'], [500,700,1000,1200,1500,1800], ['#0277BD','#039BE5','#29B6F6','#4FC3F7','#81D4FA','#B3E5FC'], 'Regiones afectadas', 'regiones');
+createPieChart('mineria', ['2020','2021','2022','2023','2024','2025'], [100,200,400,600,900,1200], ['#795548','#8D6E63','#A1887F','#BCAAA4','#D7CCC8','#EFEBE9'], 'Zonas contaminadas', 'zonas');
+</script>
+
+</body>
+</html>
+
