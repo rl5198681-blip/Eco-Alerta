@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ECO-ALERTA - Contáctanos</title>
+  <!-- Enlace a los íconos de Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #000 url('portada.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+    }
+
+    header {
+      background: rgba(0,0,0,0.7);
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    header h1 {
+      color: #76c893;
+      margin: 0;
+      font-size: 2rem;
+    }
+
+    nav {
+      background: rgba(0,0,0,0.8);
+      position: relative;
+      padding: 0.5rem 1rem;
+      text-align: center;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 2rem;
+      cursor: pointer;
+      color: #76c893;
+      text-align: right;
+    }
+
+    .menu-links a {
+      color: #76c893;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .menu-links a:hover { color: #7CFC00; }
+
+    @media (max-width:768px){
+      .menu-toggle{display:block;}
+      .menu-links{display:none;flex-direction:column;background:rgba(0,0,0,0.8);position:absolute;top:60px;width:100%;left:0;padding:10px 0;}
+      .menu-links a{margin:10px 0;display:block;text-align:center;}
+      .menu-links.show{display:flex;}
+    }
+
+    main {
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .info {
+      margin-top: 2rem;
+      background: rgba(0,0,0,0.7);
+      padding: 15px;
+      border-radius: 10px;
+      max-width: 500px;
+    }
+
+    .info p { margin: 8px 0; font-size: 1rem; }
+    .info i { color: #76c893; margin-right: 8px; }
+
+    .info a { color: #76c893; text-decoration: none; }
+    .info a:hover { text-decoration: underline; }
+
+    /* 🔹 Estilo para las imágenes lado a lado */
+    .imagenes {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+
+    .imagenes img {
+      width: 300px;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.6);
+      transition: transform 0.3s;
+    }
+
+    .imagenes img:hover {
+      transform: scale(1.05);
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: rgba(0,0,0,0.7);
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Contáctanos</h1>
+</header>
+
+<nav>
+  <div class="menu-toggle" onclick="toggleMenu()">&#7CFC00;</div>
+  <div class="menu-links" id="menuLinks">
+    <a href="index.html">Inicio</a>
+    <a href="danos.html">Daños Ambientales</a>
+    <a href="Estadisticas.html">Estadísticas</a>
+    <a href="prevenciones.html">Prevenciones</a>
+    <a href="eco-tips.html">Eco-Tips</a>
+    <a href="eco-quiz.html">Eco-Quiz</a>
+    <a href="noticias.html">Noticias</a>
+    <a href="galeria.html">Galería</a>
+    <a href="contacto.html">Contáctanos</a>
+  </div>
+</nav>
+
+<main>
+ <div class="info">
+  
+    <p><i class="fa-brands fa-facebook"></i> <a href="https://www.facebook.com/Eco Alerta Danos ambientales" target="_blank">Facebook: Eco Alerta Danos ambientales</a></p>
+    <p><i class="fa-brands fa-tiktok"></i> <a href="https://www.tiktok.com/@ecoalerta" target="_blank">TikTok: Eco-Alerta</a></p>
+   
+  </div>
+  <div class="info">
+    <p><i class="fa-solid fa-phone"></i> <a href="tel:+59178959860">+591 78959860 — Yokiro Lopez Chambi</a></p>
+    <p><i class="fa-solid fa-phone"></i> <a href="tel:+59162357977">+591 62357977 — Paola Tarqui Quispe</a></p>
+    <p><i class="fa-brands fa-facebook"></i> <a href="https://www.facebook.com/tu_usuario" target="_blank">Facebook: Reychel Yokiro Lopez Chambi</a></p>
+    <p><i class="fa-brands fa-tiktok"></i> <a href="https://www.tiktok.com/@yoki" target="_blank">TikTok: yoki :)</a></p>
+    <p><i class="fa-brands fa-tiktok"></i> <a href="https://www.tiktok.com/@paolatarqui" target="_blank">TikTok: Paola Tarqui</a></p>
+    <p><i class="fa-solid fa-location-dot"></i> Dirección: El Alto; La Paz, Bolivia</p>
+  </div>
+
+  <!-- 🔹 NUEVA SECCIÓN: Imágenes lado a lado -->
+  <div class="imagenes">
+    <img src="paola.jpeg" alt="Paola Tarqui Quispe">
+    <img src="yokiro.jpeg" alt="Yokiro Lopez Chambi">
+  </div>
+</main>
+
+<footer>
+  &copy; 2025 ECO-ALERTA | Conciencia ambiental en Bolivia
+</footer>
+
+<script>
+function toggleMenu() {
+  const menu = document.getElementById('menuLinks');
+  menu.classList.toggle('show');
+}
+</script>
+
+</body>
+</html>
+
