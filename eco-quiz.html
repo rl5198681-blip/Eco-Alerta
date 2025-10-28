@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ECO-ALERTA - Eco-Quiz</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #fff;
+  background-color: #000;
+  background-image: url('portada.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+}
+.main-overlay {
+  background-color: rgba(0, 0, 0, 0.7);
+  min-height: 100vh;
+  padding-bottom: 50px;
+}
+header {
+  text-align: center;
+  padding: 20px 0;
+  border-bottom: 2px solid #1ba158;
+}
+header h1 {
+  color: #7CFC00;
+  font-size: 3em;
+  margin: 0;
+  text-shadow: 0 0 10px rgba(124, 252, 0, 0.5);
+}
+nav.main-menu {
+  display: flex;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 10px 0;
+}
+nav.main-menu a {
+  color: #76c893;
+  text-decoration: none;
+  padding: 10px 15px;
+  margin: 0 5px;
+  font-weight: bold;
+  transition: color 0.3s, background-color 0.3s;
+  border-bottom: 2px solid transparent;
+}
+nav.main-menu a:hover,
+nav.main-menu a:focus {
+  color: #76c893;
+  border-bottom: 2px solid #7CFC00;
+}
+nav.main-menu a.active {
+  color: #7CFC00;
+  border-bottom: 2px solid #7CFC00;
+}
+.content-wrapper {
+  max-width: 950px;
+  margin: 30px auto;
+  padding: 0 20px;
+}
+#ecoDidactico {
+  background: rgba(0,0,0,0.6);
+  border-radius:15px;
+  padding:30px;
+  margin:30px 0;
+  box-shadow:0 4px 20px rgba(0,0,0,0.4);
+  color:#76c893;
+  border: 2px solid #1ba158;
+}
+#ecoDidactico h2 {
+  text-align:center;
+  color:#7CFC00;
+  font-size:28px;
+  margin-bottom:10px;
+  border-bottom: 2px solid #7CFC00;
+  padding-bottom: 10px;
+}
+#ecoDidactico nav button {
+  background:#1ba158;
+  color:white;
+  border:none;
+  border-radius:5px;
+  padding:10px 18px;
+  cursor:pointer;
+  font-weight:bold;
+  transition: background 0.3s, transform 0.2s;
+}
+#ecoDidactico nav button:hover {
+  background:#7CFC00;
+  color:#000;
+  transform: scale(1.05);
+}
+.activeDid {
+  display:none;
+  padding: 15px;
+  border: 1px dashed #7CFC00;
+  border-radius: 10px;
+}
+.quiz-option {
+  margin:5px 8px;
+  padding:10px 20px;
+  border:none;
+  border-radius:5px;
+  background:#1ba158;
+  color:white;
+  cursor:pointer;
+  font-weight:bold;
+  transition: background 0.2s, transform 0.1s;
+}
+.quiz-option:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #7CFC00;
+}
+</style>
+</head>
+<body>
+<div class="main-overlay">
+<header><h1 style="color:#76c893;">ECO-ALERTA</h1></header>
+
+<nav class="main-menu">
+  <a href="index.html">Inicio</a>
+  <a href="danos.html">Daños Ambientales</a>
+  <a href="estadisticas.html">Estadísticas</a>
+  <a href="prevenciones.html">Prevenciones</a>
+  <a href="eco-tips.html">Eco-Tips</a>
+  <a href="#" class="active">Eco-Quiz</a>
+  <a href="noticias.html">Noticias</a>
+  <a href="galeria.html">Galería</a>
+  <a href="contacto.html">Contáctanos</a>
+</nav>
+
+<div class="content-wrapper" id="eco-quiz">
+<section id="ecoDidactico">
+  <h2>🌱 Contenido Didáctico: Aprende y Juega</h2>
+  <p style="text-align:center; margin-bottom:25px; color:#ccc;">
+    Pon a prueba tus conocimientos ambientales con nuestros desafíos interactivos.
+  </p>
+
+  <nav style="display:flex; justify-content:center; flex-wrap:wrap; gap:15px; margin-bottom:30px;">
+    <button onclick="showSection('quizDid')">🌍 Desafío Verde</button>
+    <button onclick="showSection('videoDid')">🎥 La Voz del Bosque</button>
+    <button onclick="showSection('crosswordDid')">✏️ Palabras Verdes</button>
+  </nav>
+
+  <!-- QUIZ -->
+  <div id="quizDid" class="activeDid"></div>
+
+  <!-- 🚣 ATRAPABOTES -->
+  <div id="atrapabotesDid" class="activeDid" style="text-align:center;">
+    <h3 style="color:#7CFC00;">🚣 Juego: Atrapabotes</h3>
+    <p id="gameInstructions" style="color:#ccc;">Usa las flechas ← y → para mover el bote y atrapar los residuos reciclables 🌿</p>
+    <button id="startGameBtn" onclick="startGame()" style="background:#1ba158;color:white;border:none;border-radius:10px;padding:10px 20px;cursor:pointer;">🎮 Iniciar Juego</button>
+    <canvas id="ecoCatch" width="400" height="300" style="background:#002; border-radius:10px; display:none; margin-top:10px;"></canvas>
+    <p>Puntos: <span id="ecoScore">0</span></p>
+  </div>
+
+  <!-- 🎥 VIDEOS -->
+  <div id="videoDid" class="activeDid">
+    <h3 style="color:#7CFC00;">🎥 Videos Educativos</h3>
+
+    <h4>El Hombre que destruye el Medio Ambiente</h4>
+    <video width="100%" controls style="border-radius:10px;"><source src="Elhombre.mp4" type="video/mp4"></video>
+    <p> No destruyas el Medio Ambiente, cuídalo. </p>
+
+    <h4>Olvidado</h4>
+    <video width="100%" controls style="border-radius:10px;"><source src="olvidado.mp4" type="video/mp4"></video>
+    <p> Una pequeña acción demuestra que no te olvidaste del planeta. </p>
+
+    <h4>Save Ralph</h4>
+    <video width="100%" controls style="border-radius:10px;"><source src="SaveRalph.mp4" type="video/mp4"></video>
+    <p> Los animales no son para ser experimentos, protégelos y cuídalos. </p>
+
+    <h4>Lemon</h4>
+    <video width="100%" controls style="border-radius:10px;"><source src="lemon.mp4" type="video/mp4"></video>
+    <p> Cuida el Medio Ambiente. </p>
+  </div>
+
+  <!-- ✏️ CRUCIGRAMA -->
+  <div id="crosswordDid" class="activeDid" style="text-align:center;">
+    <h3 style="color:#7CFC00;">✏️ Crucigrama Ecológico</h3>
+    <p id="cwQuestionDid"></p>
+    <div id="cwInputsDid"></div>
+    <button onclick="checkCrosswordDid()">Comprobar</button>
+    <p id="cwResultDid" style="margin-top:10px;"></p>
+  </div>
+</section>
+</div>
+</div>
+
+<script>
+// CONTROL SECCIONES
+function showSection(id){
+  document.querySelectorAll('.activeDid').forEach(s=>s.style.display='none');
+  document.getElementById(id).style.display='block';
+  if(id==='quizDid' && currentQDid===0) showQuestionDid();
+}
+
+// === QUIZ (Bolivia) ===
+const questionsDid=[
+  {q:"¿Cuál es uno de los principales daños ambientales en Bolivia?",a:["Deforestación","Lluvias","Turismo"],correct:"Deforestación"},
+  {q:"¿Qué provoca la contaminación del río Pilcomayo?",a:["Minería","Pesca","Reciclaje"],correct:"Minería"},
+  {q:"¿Qué departamento sufre más incendios forestales?",a:["Santa Cruz","La Paz","Potosí"],correct:"Santa Cruz"},
+  {q:"¿Qué acción ayuda a prevenir la deforestación?",a:["Plantar árboles","Quemar bosques","Talar sin permiso"],correct:"Plantar árboles"},
+  {q:"¿Qué debemos hacer con la basura?",a:["Separarla y reciclarla","Tirarla al río","Quemarla"],correct:"Separarla y reciclarla"},
+  {q:"¿Cuál es una forma de reducir la contaminación del aire?",a:["Usar bicicleta","Usar mucho auto","Quemar plástico"],correct:"Usar bicicleta"},
+  {q:"¿Qué recurso natural se contamina con desechos mineros?",a:["Agua","Aire","Piedras"],correct:"Agua"},
+  {q:"¿Cómo podemos prevenir incendios forestales?",a:["Apagando fogatas","Dejando fuego encendido","Quemando pastizales"],correct:"Apagando fogatas"},
+  {q:"¿Qué significa reciclar?",a:["Reutilizar materiales","Botar más basura","Contaminar"],correct:"Reutilizar materiales"},
+  {q:"¿Qué debemos hacer para cuidar la fauna silvestre?",a:["No cazarlos","Cazarlos","Encerrarlos"],correct:"No cazarlos"}
+];
+let currentQDid=0,scoreDid=0;
+function showQuestionDid(){
+  const q=questionsDid[currentQDid];
+  const c=document.getElementById('quizDid');
+  c.innerHTML=`<h3 style='color:#7CFC00;'>🌍 Desafío Verde</h3><p>${q.q}</p>`+
+  q.a.map(opt=>`<button class='quiz-option' onclick='checkAnswerDid(this)'>${opt}</button>`).join('')+
+  `<p id='quizResultDid'></p>`;
+}
+function checkAnswerDid(btn){
+  const q=questionsDid[currentQDid];
+  if(btn.textContent===q.correct){scoreDid++;document.getElementById('quizResultDid').textContent='✅ Correcto!';}
+  else document.getElementById('quizResultDid').textContent='❌ Incorrecto.';
+  currentQDid++;
+  if(currentQDid<questionsDid.length)setTimeout(showQuestionDid,1000);
+  else setTimeout(()=>document.getElementById('quizResultDid').textContent=`🎉 ¡Completado! Puntuación: ${scoreDid}/${questionsDid.length}`,800);
+}
+
+// === CRUCIGRAMA ===
+const crosswordData=[
+  {word:"AGUA",hint:"Recurso vital contaminado por residuos mineros"},
+  {word:"BASURA",hint:"Debe separarse y reciclarse"},
+  {word:"BOSQUE",hint:"Lugar afectado por incendios forestales"},
+  {word:"CLIMA",hint:"Está cambiando por la contaminación"},
+  {word:"RECICLA",hint:"Acción ecológica para reducir residuos"}
+];
+let cwIndex=0;
+function showCrossword(){
+  const cw=crosswordData[cwIndex];
+  document.getElementById('cwQuestionDid').textContent=`Pista: ${cw.hint}`;
+  const cont=document.getElementById('cwInputsDid');
+  cont.innerHTML="";
+  for(let i=0;i<cw.word.length;i++){
+    const inp=document.createElement('input');
+    inp.maxLength=1;inp.style.width='30px';inp.style.textAlign='center';cont.appendChild(inp);
+  }
+}
+function checkCrosswordDid(){
+  const cw=crosswordData[cwIndex];
+  const letters=[...document.querySelectorAll('#cwInputsDid input')].map(i=>i.value.toUpperCase()).join('');
+  if(letters===cw.word){
+    document.getElementById('cwResultDid').textContent='✅ Correcto!';
+    cwIndex++;if(cwIndex<crossoverData?.length??false)setTimeout(showCrossword,1000);
+    else document.getElementById('cwQuestionDid').textContent='🎉 ¡Crucigrama completado!';
+  }else document.getElementById('cwResultDid').textContent='❌ Intenta de nuevo';
+}
+showCrossword();
+showSection('quizDid');
+</script>
+</body>
+</html>
+
+
