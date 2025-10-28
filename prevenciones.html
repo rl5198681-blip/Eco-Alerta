@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ECO-ALERTA - Prevenciones</title>
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #000 url('portada.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #fff;
+  }
+
+  header {
+    background: rgba(0,0,0,0.7);
+    padding: 1.5rem;
+    text-align: center;
+  }
+  header h1 { color: #76c893; margin: 0; }
+
+  nav {
+    background: rgba(0,0,0,0.8);
+    text-align: center;
+    padding: 0.7rem;
+  }
+  nav a {
+    color: #76c893;
+    text-decoration: none;
+    margin: 0 12px;
+    font-weight: bold;
+  }
+  nav a:hover { color: #b5ffd9; }
+
+  main {
+    padding: 2rem;
+    text-align: center;
+  }
+
+  /* Videos */
+  .video-container {
+    background: rgba(0,0,0,0.7);
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 25px;
+  }
+  .video-container video {
+    width: 100%;
+    max-width: 600px;
+    border-radius: 10px;
+    max-height: 350px;
+    display: block;
+    margin: auto;
+  }
+
+  /* Pasos */
+  .pasos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+  .paso {
+    background: rgba(0,0,0,0.6);
+    padding: 10px;
+    border-radius: 10px;
+    width: 180px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s;
+  }
+  .paso img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 5px;
+    transition: transform 0.3s;
+  }
+  .paso:hover { transform: scale(1.05); }
+
+  /* Modal pasos */
+  .info-box {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.9);
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+  }
+  .info-box img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 12px;
+    box-shadow: 0 0 20px #76c893;
+  }
+  .info-box button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: #76c893;
+    border: none;
+    color: #000;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  .info-box button:hover { background: #b5ffd9; }
+
+  /* Quiz */
+  .quiz-box {
+    background: rgba(0,0,0,0.7);
+    border-radius: 15px;
+    padding: 1.5rem;
+    max-width: 600px;
+    margin: 20px auto;
+  }
+  .quiz-box h2 { color: #76c893; margin-bottom: 1rem; }
+  .quiz-box button {
+    background: #76c893;
+    border: none;
+    color: #000;
+    padding: 10px 15px;
+    margin: 8px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  .quiz-box button:hover { background: #b5ffd9; }
+
+  .quiz-info {
+    display: none;
+    background: rgba(0,0,0,0.85);
+    border: 2px solid #76c893;
+    border-radius: 12px;
+    padding: 1.5rem;
+    max-width: 500px;
+    margin: 1rem auto;
+    text-align: center;
+  }
+  .quiz-info button {
+    margin-top: 10px;
+    background: #76c893;
+    border: none;
+    color: #000;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  .quiz-info button:hover { background: #b5ffd9; }
+
+  #final-box {
+    display: none;
+    background: rgba(255,255,255,0.1);
+    border-radius: 12px;
+    padding: 1.5rem;
+    max-width: 600px;
+    margin: auto;
+  }
+
+  footer {
+    background: rgba(0,0,0,0.7);
+    text-align: center;
+    padding: 1rem;
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>Prevenciones Ambientales de Bolivia</h1>
+  <p>Aprende y protege nuestro medio ambiente 🌱</p>
+</header>
+
+<nav>
+  <a href="index.html">Inicio</a>
+  <a href="danos.html">Daños Ambientales</a>
+  <a href="estadisticas.html">Estadisticas</a>
+  <a href="prevenciones.html">Prevenciones</a>
+  <a href="eco-tips.html">Eco-Tips</a>
+  <a href="eco-quiz.html">Eco-quiz</a>
+  <a href="noticias.html">Noticias</a>
+  <a href="galeria.html">Galería</a>
+  <a href="contacto.html">Contáctanos</a>
+</nav>
+
+<main>
+
+  <!-- VIDEOS -->
+  <section id="videos">
+    <h2>🎥 Videos Educativos Sobre los Daños Ambientales en Bolivia</h2>
+    <div class="video-container">
+      <h3>Desastres ambientales en Bolivia</h3>
+      <video controls>
+        <source src="desastre.mp4" type="video/mp4">
+      </video>
+      <p>No destruyas el Medio Ambiente, cuídalo</p>
+    </div>
+    <div class="video-container">
+      <h3>7 Problemas Ambientales y Cómo Solucionarlos</h3>
+      <video controls>
+        <source src="problemas.mp4" type="video/mp4">
+      </video>
+      <p>Una pequeña acción demuestra que te importan nuestros ríos y bosques</p>
+    </div>
+  </section>
+
+  <!-- PASOS -->
+  <section>
+    <h2>💡 Ahorrar Energía</h2>
+    <div class="pasos">
+      <div class="paso" onclick="abrirImagen('recolecion.webp')">
+        <img src="recolecion.webp" alt="Paso 1">
+        <p>Paso 1: Recolección del agua usada</p>
+      </div>
+      <div class="paso" onclick="abrirImagen('pre.webp')">
+        <img src="pre.webp" alt="Paso 2">
+        <p>Paso 2: Pretratamiento</p>
+      </div>
+      <div class="paso" onclick="abrirImagen('primaria.webp')">
+        <img src="primaria.webp" alt="Paso 3">
+        <p>Paso 3: Sedimentación primaria</p>
+      </div>
+      <div class="paso" onclick="abrirImagen('biologico.webp')">
+        <img src="biologico.webp" alt="Paso 4">
+        <p>Paso 4: Tratamiento biológico</p>
+      </div>
+      <div class="paso" onclick="abrirImagen('secundaria.webp')">
+        <img src="secundaria.webp" alt="Paso 5">
+        <p>Paso 5: Sedimentación secundaria</p>
+      </div>
+      <div class="paso" onclick="abrirImagen('filtracion.webp')">
+        <img src="filtracion.webp" alt="Paso 6">
+        <p>Paso 6: Filtración</p>
+      </div>
+      <div class="paso" onclick="abrirImagen('desinfeccion.webp')">
+        <img src="desinfeccion.webp" alt="Paso 7">
+        <p>Paso 7: Desinfección</p>
+      </div>
+      <div class="paso" onclick="abrirImagen('reutilizacion.webp')">
+        <img src="reutilizacion.webp" alt="Paso 8">
+        <p>Paso 8: Reutilización</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODAL PASOS -->
+  <div class="info-box" id="info-box">
+    <img id="modal-img" src="" alt="Imagen Ampliada">
+    <button onclick="cerrarModal()">Cerrar</button>
+  </div>
+
+  <!-- QUIZ -->
+  <div class="quiz-box" id="quiz-box">
+    <h2 id="pregunta"></h2>
+    <div id="opciones"></div>
+  </div>
+
+  <div class="quiz-info" id="quiz-info">
+    <p id="quiz-texto"></p>
+    <button onclick="cerrarQuizInfo()">Cerrar</button>
+  </div>
+
+  <div id="final-box">
+    <h2>🎉 ¡Completaste el Quiz Ecológico! 🎉</h2>
+    <p id="consejo-final"></p>
+  </div>
+
+</main>
+
+<footer>
+  &copy; 2025 ECO-ALERTA | Conciencia ambiental en Bolivia
+</footer>
+
+<script>
+  // Modal pasos
+  function abrirImagen(src) {
+    document.getElementById("modal-img").src = src;
+    document.getElementById("info-box").style.display = "flex";
+  }
+  function cerrarModal() {
+    document.getElementById("info-box").style.display = "none";
+  }
+
+  // QUIZ
+  const preguntas = [
+    { pregunta: "1. ¿Cuál es la principal causa de deforestación en Bolivia?", opciones: ["Expansión agrícola y ganadera","Turismo","Urbanización"], correcta: 0, info: "La expansión agrícola y ganadera causa gran pérdida de bosques en Bolivia." },
+    { pregunta: "2. ¿Qué río boliviano ha sido afectado por contaminación minera?", opciones: ["Río Pilcomayo","Río Amazonas","Río Paraná"], correcta: 0, info: "El río Pilcomayo sufre contaminación por minería y residuos industriales." },
+    { pregunta: "3. ¿Qué zona de Bolivia enfrenta desertificación?", opciones: ["Región Chaco","Amazonas","Altiplano"], correcta: 0, info: "La región del Chaco sufre desertificación por deforestación y sequías." }
+  ];
+
+  let indice = 0;
+
+  function mostrarPregunta() {
+    const preguntaActual = preguntas[indice];
+    document.getElementById("pregunta").textContent = preguntaActual.pregunta;
+    const opcionesDiv = document.getElementById("opciones");
+    opcionesDiv.innerHTML = "";
+    preguntaActual.opciones.forEach((opcion, i) => {
+      const boton = document.createElement("button");
+      boton.textContent = opcion;
+      boton.onclick = () => verificarRespuesta(i);
+      opcionesDiv.appendChild(boton);
+    });
+  }
+
+  function verificarRespuesta(iSeleccionado) {
+    const preguntaActual = preguntas[indice];
+    document.getElementById("quiz-texto").textContent = preguntaActual.info;
+    document.getElementById("quiz-box").style.display = "none";
+    document.getElementById("quiz-info").style.display = "block";
+  }
+
+  function cerrarQuizInfo() {
+    document.getElementById("quiz-info").style.display = "none";
+    indice++;
+    if (indice < preguntas.length) {
+      document.getElementById("quiz-box").style.display = "block";
+      mostrarPregunta();
+    } else {
+      mostrarConsejoFinal();
+    }
+  }
+
+  function mostrarConsejoFinal() {
+    const consejos = [
+      "🌿 Cada árbol sembrado en Bolivia ayuda a combatir la deforestación.",
+      "💧 Cuida los ríos bolivianos, no arrojes basura ni químicos.",
+      "🌳 Plantar especies nativas protege la biodiversidad de Bolivia.",
+      "♻️ Reciclar en casa reduce residuos y protege nuestros suelos.",
+      "🚴 Usa transporte sostenible y reduce la contaminación del aire en las ciudades bolivianas."
+    ];
+    document.getElementById("final-box").style.display = "block";
+    document.getElementById("consejo-final").textContent = consejos[Math.floor(Math.random() * consejos.length)];
+  }
+
+  mostrarPregunta();
+</script>
+</body>
+</html>
+
+
+
+
