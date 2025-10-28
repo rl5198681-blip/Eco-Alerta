@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ECO-ALERTA - Galería Multimedia</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #000 url('portada.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+    }
+
+    header {
+      background: rgba(0,0,0,0.7);
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    header h1 { color: #76c893; margin: 0; font-size: 2rem; }
+
+    nav {
+      background: rgba(0,0,0,0.8);
+      position: relative;
+      padding: 0.5rem 1rem;
+      text-align: center;
+    }
+
+    .menu-toggle { display: none; font-size: 2rem; cursor: pointer; color: #76c893; text-align: right; }
+    .menu-links a { color: #76c893; margin: 0 15px; text-decoration: none; font-weight: bold; }
+    .menu-links a:hover { color: #7CFC00; }
+
+    @media (max-width: 768px) {
+      .menu-toggle { display: block; }
+      .menu-links { display: none; flex-direction: column; background: rgba(0,0,0,0.8); position: absolute; top: 60px; width: 100%; left: 0; padding: 10px 0; }
+      .menu-links a { margin: 10px 0; display: block; text-align: center; }
+      .menu-links.show { display: flex; }
+    }
+
+    main { padding: 2rem; text-align: center; }
+
+    .carousel {
+      position: relative;
+      max-width: 700px;
+      margin: auto;
+      overflow: hidden;
+      border-radius: 10px;
+      background: rgba(0,0,0,0.6);
+      padding: 15px;
+    }
+
+    .carousel img {
+      width: 80%;
+      border-radius: 10px;
+      display: none;
+      margin: auto;
+    }
+
+    .carousel img.active { display: block; }
+
+    .carousel-text {
+      margin-top: 15px;
+      font-size: 1rem;
+      color: #b5ffd9;
+      min-height: 50px;
+      transition: opacity 0.5s ease;
+    }
+
+    .prev, .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      width: auto;
+      padding: 10px;
+      color: #76c893;
+      font-weight: bold;
+      font-size: 1.5rem;
+      user-select: none;
+      transform: translateY(-50%);
+    }
+
+    .prev { left: 10px; }
+    .next { right: 10px; }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: rgba(0,0,0,0.7);
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Galería Multimedia</h1>
+  <p>Imágenes de daños y prevención ambiental en Bolivia</p>
+</header>
+
+<nav>
+  <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
+  <div class="menu-links" id="menuLinks">
+    <a href="index.html">Inicio</a>
+    <a href="danos.html">Daños Ambientales</a>
+    <a href="estadisticas.html">Estadisticas</a>
+    <a href="prevenciones.html">Prevenciones</a>
+    <a href="eco-tips.html">Eco-Tips</a>
+    <a href="eco-quiz.html">Eco-Quiz</a>
+    <a href="noticias.html">Noticias</a>
+    <a href="galeria.html">Galería</a>
+    <a href="contacto.html">Contáctanos</a>
+  </div>
+</nav>
+
+<main>
+  <div class="carousel">
+    <span class="prev" onclick="changeSlide(-1)">&#10094;</span>
+    <span class="next" onclick="changeSlide(1)">&#10095;</span>
+
+    <img src="amazonia.webp" alt="Deforestación 2023" class="active">
+    <img src="descarga.jpeg" alt="Deforestación en Bolivia">
+    <img src="Latala.jpeg" alt="Incendio forestal en Bolivia">
+    <img src="agua.jpeg" alt="Cuidado del agua y reciclaje">
+    <img src="Quemar basura.jpeg" alt="Contaminación por quema de basura">
+    <img src="Contaminación.jpeg" alt="Contaminación del aire en ciudades">
+
+    <div class="carousel-text" id="carouselText">
+      Deforestación 2023
+    </div>
+  </div>
+</main>
+
+<footer>
+  &copy; 2025 ECO-ALERTA | Conciencia ambiental en Bolivia
+</footer>
+
+<script>
+function toggleMenu() {
+  const menu = document.getElementById('menuLinks');
+  menu.classList.toggle('show');
+}
+
+let currentSlide = 0;
+const slides = document.querySelectorAll('.carousel img');
+const textElement = document.getElementById('carouselText');
+
+const textos = [
+  "Deforestación 2023",
+  "Deforestación en Bolivia",
+  "Incendio forestal en Bolivia",
+  "Cuidado del agua y reciclaje",
+  "Contaminación por quema de basura",
+  "Contaminación del aire en ciudades"
+];
+
+function showSlide(index) {
+  slides.forEach((img, i) => img.classList.remove('active'));
+  slides[index].classList.add('active');
+  textElement.style.opacity = 0;
+  setTimeout(() => {
+    textElement.textContent = textos[index];
+    textElement.style.opacity = 1;
+  }, 300);
+}
+
+function changeSlide(n) {
+  currentSlide += n;
+  if (currentSlide < 0) currentSlide = slides.length - 1;
+  if (currentSlide >= slides.length) currentSlide = 0;
+  showSlide(currentSlide);
+}
+
+setInterval(() => { changeSlide(1); }, 5000);
+</script>
+
+</body>
+</html>
