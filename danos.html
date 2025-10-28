@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ECO-ALERTA - Daños Ambientales</title>
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #000 url('portada.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #fff;
+  }
+
+  header {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 1.5rem;
+    text-align: center;
+  }
+
+  header h1 { color: #76c893; margin: 0; font-size: 2rem; }
+  header p { margin-top: 0.5rem; color: #b5ffd9; }
+
+  nav {
+    background: rgba(0,0,0,0.8);
+    padding: 0.8rem 0;
+    text-align: center;
+  }
+
+  .menu-toggle {
+    display: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #76c893;
+    text-align: right;
+  }
+
+  .menu-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  .menu-links a {
+    color: #76c893;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+  }
+
+  .menu-links a:hover {
+    color: #7CFC00;
+    transform: scale(1.05);
+  }
+
+  main { padding: 2rem; }
+
+  section {
+    margin-bottom: 2rem;
+    background: rgba(0,0,0,0.6);
+    padding: 1rem;
+    border-radius: 10px;
+  }
+
+  h2 { 
+    color: #76c893; 
+    margin-bottom: 1rem; 
+    border-bottom: 1px solid #76c893; 
+    padding-bottom: 5px; 
+  }
+
+  h3 { color: #b5ffd9; margin-bottom: 0.8rem; }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    table-layout: fixed;
+  }
+
+  th, td {
+    border: 1px solid #76c893;
+    padding: 10px;
+    text-align: left;
+    vertical-align: top;
+    word-wrap: break-word;
+  }
+
+  th {
+    background-color: rgba(118, 200, 147, 0.3);
+    color: #fff;
+  }
+
+  td img {
+    width: 100%;
+    max-width: 450px;
+    height: auto;
+    border-radius: 8px;
+    display: block;
+    margin: 0 auto;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+
+  td img:hover { transform: scale(2.05); }
+
+  /* Modal de imagen */
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.9);
+  }
+
+  .modal-content {
+    width: 800px;
+    height: auto;
+    margin: 5% auto;
+    display: block;
+    max-width: 95%;
+    max-height: 95%;
+    border-radius: 10px;
+  }
+
+  .close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  footer {
+    text-align: center;
+    padding: 1rem;
+    background: rgba(0,0,0,0.7);
+    font-size: 0.9rem;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Daños Ambientales en Bolivia</h1>
+  <p>No dañes un Ambiente, el Medio Ambiente también siente</p>
+</header>
+
+<nav>
+  <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
+  <div class="menu-links" id="menuLinks">
+    <a href="index.html">Inicio</a>
+    <a href="danos.html">Daños Ambientales</a>
+    <a href="estadisticas.html">Estadísticas</a>
+    <a href="prevenciones.html">Prevenciones</a>
+    <a href="eco-tips.html">Eco-Tips</a>
+    <a href="eco-quiz.html">Eco-Quiz</a>
+    <a href="noticias.html">Noticias</a>
+    <a href="galeria.html">Galería</a>
+    <a href="contacto.html">Contáctanos</a>
+  </div>
+</nav>
+
+<main>
+  <!-- ================= AÑO 2025 ================= -->
+  <section>
+    <h2>📅 Año 2025</h2>
+
+    <!-- Departamento Beni -->
+    <h3>🏞️ Beni</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Tipo de Daño</th>
+          <th>Tipo de Contaminación</th>
+          <th>Personas Afectadas</th>
+          <th>Muertes Humanas</th>
+          <th>Fauna Afectada</th>
+          <th>Lugar</th>
+          <th>Consecuencias Ambientales</th>
+          <th>Impacto Socioeconómico</th>
+          <th>Medidas de Mitigación</th>
+          <th>Datos Curiosos / Récords</th>
+          <th>Imagen</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Fenómenos climáticos extremos e inundaciones</td>
+          <td>Agua, Suelo</td>
+          <td>20,000</td>
+          <td>25</td>
+          <td>10,000 animales</td>
+          <td>Beni</td>
+          <td>Destrucción de ecosistemas, contaminación hídrica</td>
+          <td>Crisis humanitaria, pérdida de cultivos y viviendas</td>
+          <td>Educación ambiental, prevención de inundaciones, drenajes</td>
+          <td>Mayor inundación registrada en los últimos 10 años</td>
+          <td><img src="inundacion.webp" alt="Desastres 2025" onclick="openModal(this.src)"></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Departamento La Paz -->
+    <h3>🏔️ La Paz</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Tipo de Daño</th>
+          <th>Tipo de Contaminación</th>
+          <th>Personas Afectadas</th>
+          <th>Muertes Humanas</th>
+          <th>Fauna Afectada</th>
+          <th>Lugar</th>
+          <th>Consecuencias Ambientales</th>
+          <th>Impacto Socioeconómico</th>
+          <th>Medidas de Mitigación</th>
+          <th>Datos Curiosos / Récords</th>
+          <th>Imagen</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Contaminación del aire y agua</td>
+          <td>Aire, Agua</td>
+          <td>10,000</td>
+          <td>0</td>
+          <td>Peces y aves locales</td>
+          <td>La Paz</td>
+          <td>Intoxicaciones, pérdida de calidad de ecosistemas</td>
+          <td>Enfermedades respiratorias y gastrointestinales</td>
+          <td>Educación ambiental, tratamiento de residuos</td>
+          <td>Mayor aumento de contaminación por quema de residuos y agroquímicos</td>
+          <td><img src="aireagua.webp" alt="Daños peligrosos 2025" onclick="openModal(this.src)"></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ================= AÑO 2024 ================= -->
+  <section>
+    <h2>📅 Año 2024</h2>
+
+    <h3>🏞️ Beni</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Tipo de Daño</th>
+          <th>Tipo de Contaminación</th>
+          <th>Personas Afectadas</th>
+          <th>Muertes Humanas</th>
+          <th>Fauna Afectada</th>
+          <th>Lugar</th>
+          <th>Consecuencias Ambientales</th>
+          <th>Impacto Socioeconómico</th>
+          <th>Medidas de Mitigación</th>
+          <th>Datos Curiosos / Récords</th>
+          <th>Imagen</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Incendios forestales masivos y deforestación</td>
+          <td>Aire, Suelo</td>
+          <td>15,000</td>
+          <td>12</td>
+          <td>50,000 animales</td>
+          <td>Beni</td>
+          <td>Pérdida de biodiversidad, erosión del suelo, aumento de CO₂</td>
+          <td>Desplazamiento de comunidades, pérdida de cultivos</td>
+          <td>Reforestación, control de incendios, campañas de concientización</td>
+          <td>Mayor cantidad de hectáreas quemadas en la historia de Bolivia</td>
+          <td><img src="beni.webp" alt="Desastres 2024" onclick="openModal(this.src)"></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>🏞️ Santa Cruz</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Tipo de Daño</th>
+          <th>Tipo de Contaminación</th>
+          <th>Personas Afectadas</th>
+          <th>Muertes Humanas</th>
+          <th>Fauna Afectada</th>
+          <th>Lugar</th>
+          <th>Consecuencias Ambientales</th>
+          <th>Impacto Socioeconómico</th>
+          <th>Medidas de Mitigación</th>
+          <th>Datos Curiosos / Récords</th>
+          <th>Imagen</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Deforestación masiva</td>
+          <td>Suelo</td>
+          <td>7,000</td>
+          <td>0</td>
+          <td>40,000 animales desplazados</td>
+          <td>Santa Cruz</td>
+          <td>Pérdida de ecosistemas, erosión del suelo</td>
+          <td>Escasez de recursos naturales para comunidades</td>
+          <td>Reforestación, protección de bosques primarios</td>
+          <td>83% de bosque primario destruido</td>
+          <td><img src="santacruz.webp" alt="Daños peligrosos 2024" onclick="openModal(this.src)"></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ================= AÑO 2023 ================= -->
+  <section>
+    <h2>📅 Año 2023</h2>
+
+    <h3>🏞️ Amazonía boliviana</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Tipo de Daño</th>
+          <th>Tipo de Contaminación</th>
+          <th>Personas Afectadas</th>
+          <th>Muertes Humanas</th>
+          <th>Fauna Afectada</th>
+          <th>Lugar</th>
+          <th>Consecuencias Ambientales</th>
+          <th>Impacto Socioeconómico</th>
+          <th>Medidas de Mitigación</th>
+          <th>Datos Curiosos / Récords</th>
+          <th>Imagen</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Deforestación e incendios forestales</td>
+          <td>Aire, Suelo</td>
+          <td>5,000</td>
+          <td>8</td>
+          <td>30,000 animales</td>
+          <td>Amazonía boliviana</td>
+          <td>Pérdida de biodiversidad, destrucción de hábitats</td>
+          <td>Pérdida de recursos naturales, desplazamiento de comunidades</td>
+          <td>Reforestación, vigilancia de bosques, educación ambiental</td>
+          <td>Incendios iniciaron por descuidos humanos y sequía extrema</td>
+          <td><img src="amazonia.webp" alt="Desastres 2023" onclick="openModal(this.src)"></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>🏞️ Santa Cruz</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Tipo de Daño</th>
+          <th>Tipo de Contaminación</th>
+          <th>Personas Afectadas</th>
+          <th>Muertes Humanas</th>
+          <th>Fauna Afectada</th>
+          <th>Lugar</th>
+          <th>Consecuencias Ambientales</th>
+          <th>Impacto Socioeconómico</th>
+          <th>Medidas de Mitigación</th>
+          <th>Datos Curiosos / Récords</th>
+          <th>Imagen</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Incendios forestales</td>
+          <td>Aire</td>
+          <td>4,000</td>
+          <td>5</td>
+          <td>20,000 animales</td>
+          <td>Chiquitania</td>
+          <td>Pérdida de biodiversidad, destrucción de hábitats</td>
+          <td>Pérdida de cultivos y recursos locales</td>
+          <td>Campañas de prevención, vigilancia de incendios</td>
+          <td>3,3 millones de hectáreas afectadas</td>
+          <td><img src="chiquitania.webp" alt="Daños peligrosos 2023" onclick="openModal(this.src)"></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</main>
+
+<!-- Modal -->
+<div id="imgModal" class="modal">
+  <span class="close" 
+  onclick="closeModal()">&times;</span>
+  <img class="modal-content" id="modalImg">
+</div>
+
+<footer>
+  &copy; 2025 ECO-ALERTA | Conciencia ambiental en Bolivia
+</footer>
+
+<script>
+function toggleMenu() {
+  const menu = document.getElementById('menuLinks');
+  menu.classList.toggle('show');
+}
+
+// Modal para agrandar imágenes
+function openModal(src) {
+  document.getElementById('imgModal').style.display = "block";
+  document.getElementById('modalImg').src = src;
+}
+
+function closeModal() {
+  document.getElementById('imgModal').style.display = "none";
+}
+</script>
+</body>
+</html>

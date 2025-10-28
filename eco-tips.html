@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ECO-ALERTA - Eco-Tips</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #000 url('portada.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+    }
+
+    header {
+      background: rgba(0,0,0,0.7);
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    header h1 { color: #76c893; margin: 0; font-size: 2rem; }
+
+    nav {
+      background: rgba(0,0,0,0.8);
+      position: relative;
+      padding: 0.5rem 1rem;
+      text-align: center;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 2rem;
+      cursor: pointer;
+      color: #76c893;
+    }
+
+    .menu-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .menu-links a {
+      color: #76c893;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 10px 15px;
+      transition: 0.3s;
+    }
+
+    .menu-links a:hover { color: #7CFC00; }
+
+    @media (max-width: 768px) {
+      .menu-toggle { display: block; }
+      .menu-links {
+        display: none;
+        flex-direction: column;
+        background: rgba(0,0,0,0.8);
+        position: absolute;
+        top: 60px;
+        width: 100%;
+        left: 0;
+        padding: 10px 0;
+      }
+      .menu-links.show { display: flex; }
+      .menu-links a { margin: 10px 0; display: block; text-align: center; }
+    }
+
+    main { padding: 2rem; }
+
+    section { margin-bottom: 2rem; background: rgba(0,0,0,0.6); padding: 1rem; border-radius: 10px; }
+
+    h2 { color: #76c893; margin-bottom: 1rem; border-bottom: 1px solid #76c893; padding-bottom: 5px; text-align: center; }
+
+    .pasos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      justify-items: center;
+    }
+
+    .paso {
+      background: rgba(0,0,0,0.5);
+      border-radius: 10px;
+      padding: 10px;
+      width: 100%;
+      max-width: 200px;
+      height: 350px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    .paso img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .paso p {
+      margin-top: 10px;
+      color: #d1fae5;
+      font-size: 0.95rem;
+      flex-grow: 1;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: rgba(0,0,0,0.7);
+      font-size: 0.9rem;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.8);
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .modal-content {
+      background-color: #111;
+      padding: 15px;
+      border-radius: 10px;
+      max-width: 600px;
+      width: 90%;
+      color: #7CFC00;
+      text-align: center;
+    }
+
+    .modal-content img {
+      max-width: 100%;
+      max-height: 300px;
+      object-fit: contain;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    .close {
+      color: #fff;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: -10px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Eco-Tips para Bolivia</h1>
+  <p>Pequeñas acciones que generan un gran impacto ambiental</p>
+</header>
+
+<nav>
+  <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
+  <div class="menu-links" id="menuLinks">
+    <a href="index.html">Inicio</a>
+    <a href="danos.html">Daños Ambientales</a>
+    <a href="estadisticas.html">Estadísticas</a>
+    <a href="prevenciones.html">Prevenciones</a>
+    <a href="eco-tips.html">Eco-Tips</a>
+    <a href="eco-quiz.html">Eco-Quiz</a>
+    <a href="noticias.html">Noticias</a>
+    <a href="galeria.html">Galería</a>
+    <a href="contacto.html">Contáctanos</a>
+  </div>
+</nav>
+
+<main>
+  <!-- Sección Ahorrar Energía -->
+  <section>
+    <h2>💡 Ahorrar Energía</h2>
+    <div class="pasos">
+      <div class="paso" onclick="openModal('eco-tips/apagalaluz.jpeg','Apaga las luces innecesarias para proteger el planeta.')">
+        <img src="apagalaluz.jpeg" alt="Apagar luces">
+        <p><b>Paso 1:</b> Apaga las luces y aparatos eléctricos cuando no los uses.</p>
+      </div>
+      <div class="paso" onclick="openModal('eco-tips/bombilla.jpeg','Usa bombillas LED, duran más y consumen menos energía.')">
+        <img src="bombilla.jpeg" alt="Bombillas LED">
+        <p><b>Paso 2:</b> Usa bombillas LED.</p>
+      </div>
+      <div class="paso" onclick="openModal('eco-tips/luznatural.jpeg','Aprovecha la luz natural para reducir consumo energético.')">
+        <img src="luznatural.jpeg" alt="Luz natural">
+        <p><b>Paso 3:</b> Aprovecha la luz natural.</p>
+      </div>
+      <div class="paso" onclick="openModal('eco-tips/ventilacion.jpeg','Usa ventilación natural en lugar de aire acondicionado.')">
+        <img src="ventilacion.jpeg" alt="Ventilación natural">
+        <p><b>Paso 4:</b> Usa ventilación natural.</p>
+      </div>
+      <div class="paso" onclick="openModal('eco-tips/aparatos.jpeg','Apaga completamente los aparatos electrónicos.')">
+        <img src="aparatos.jpeg" alt="Apagar aparatos">
+        <p><b>Paso 5:</b> Apaga aparatos electrónicos.</p>
+      </div>
+      <div class="paso" onclick="openModal('eco-tips/panel.jpeg','Considera usar energía solar en casa.')">
+        <img src="energia.jpeg" alt="Panel solar">
+        <p><b>Paso 6:</b> Usa energía solar.</p>
+      </div>
+      <div class="paso" onclick="openModal('eco-tips/aislante.jpeg','Aísla tu casa para ahorrar energía.')">
+        <img src="aislamiento.jpeg" alt="Aislante térmico">
+        <p><b>Paso 7:</b> Mejora el aislamiento térmico.</p>
+      </div>
+      <div class="paso" onclick="openModal('eco-tips/refrigerador.jpeg','Mantén el refrigerador cerrado y limpio.')">
+        <img src="refrigerador.jpeg" alt="Refrigerador eficiente">
+        <p><b>Paso 8:</b> Optimiza el uso del refrigerador.</p>
+      </div>
+      <div class="paso" onclick="openModal('eco-tips/energiasalternativas.jpeg','Considera energías alternativas.')">
+        <img src="alternativas.jpeg" alt="Energías alternativas">
+        <p><b>Paso 9:</b> Usa energías alternativas.</p>
+      </div>
+      <div class="paso" onclick="openModal('eco-tips/temporizador.jpeg','Usa temporizadores para luces y aparatos.')">
+        <img src="temporizador.jpeg" alt="Temporizador">
+        <p><b>Paso 10:</b> Usa temporizadores.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección Cuidado del Agua -->
+  <section>
+    <h2>💧 Cuidado del Agua</h2>
+    <div class="pasos">
+      <div class="paso" onclick="openModal('eco-tips/grifo.jpeg','Cierra el grifo mientras cepillas los dientes.')">
+        <img src="grifo.jpeg" alt="Cerrar el grifo">
+        <p><b>Paso 1:</b> Cierra el grifo al lavar dientes.</p>
+      </div>
+      <div class="paso" onclick="openModal('eco-tips/lluvia.jpeg','Recolecta agua de lluvia para regar.')">
+        <img src="lluvia.jpeg" alt="Recolectar agua de lluvia">
+        <p><b>Paso 2:</b> Recolecta agua de lluvia.</p>
+      </div>
+      <div class="paso" onclick="openModal('eco-tips/fuga.jpeg','Repara fugas para evitar desperdicio.')">
+        <img src="fuga.jpeg" alt="Reparar fugas">
+        <p><b>Paso 3:</b> Repara fugas de agua.</p>
+      </div>
+      <div class="paso" onclick="openModal('eco-tips/ducha.jpeg','Dúchate rápido para ahorrar agua.')">
+        <img src="ducha.jpeg" alt="Ducha rápida">
+        <p><b>Paso 4:</b> Dúchate rápido.</p>
+      </div>
+      <div class="paso" onclick="openModal('eco-tips/lavado.jpeg','Lava ropa con carga completa.')">
+        <img src="lavadora.jpeg" alt="Lavar ropa">
+        <p><b>Paso 5:</b> Lava ropa completa.</p>
+      </div>
+      <div class="paso" onclick="openModal('eco-tips/regar.jpeg','Riega las plantas por la mañana o noche.')">
+        <img src="regar.jpeg" alt="Regar plantas">
+        <p><b>Paso 6:</b> Riega plantas en horarios óptimos.</p>
+      </div>
+      <div class="paso" onclick="openModal('eco-tips/filtro.jpeg','Usa filtros de agua para reutilizar.')">
+        <img src="filtro.jpeg" alt="Filtro de agua">
+        <p><b>Paso 7:</b> Usa filtros de agua.</p>
+      </div>
+      <div class="paso" onclick="openModal('eco-tips/reutilizar.jpeg','Reutiliza agua para limpieza.')">
+        <img src="reutilizar.jpeg" alt="Reutilizar agua">
+        <p><b>Paso 8:</b> Reutiliza agua.</p>
+      </div>
+      <div class="paso" onclick="openModal('eco-tips/ahorro.jpeg','Monitorea tu consumo de agua.')">
+        <img src="agua.jpeg" alt="Monitorear consumo">
+        <p><b>Paso 9:</b> Monitorea consumo de agua.</p>
+      </div>
+      <div class="paso" onclick="openModal('eco-tips/cubeta.jpeg','Usa cubetas en lugar de manguera.')">
+        <img src="bañador.jpeg" alt="Usar cubeta">
+        <p><b>Paso 10:</b> Usa cubetas en lugar de manguera.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- Modal -->
+<div id="modal" class="modal" onclick="closeModal()">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <img id="modal-img" src="" alt="">
+    <p id="modal-msg"></p>
+  </div>
+</div>
+
+<footer>
+  &copy; 2025 ECO-ALERTA | Conciencia ambiental en Bolivia
+</footer>
+
+<script>
+function toggleMenu() {
+  const menu = document.getElementById('menuLinks');
+  menu.classList.toggle('show');
+}
+
+function openModal(imgSrc, message) {
+  const modal = document.getElementById('modal');
+  modal.style.display = 'flex';
+  document.getElementById('modal-img').src = imgSrc;
+  document.getElementById('modal-msg').textContent = message;
+}
+
+function closeModal() {
+  document.getElementById('modal').style.display = 'none';
+}
+</script>
+
+</body>
+</html>
+
+
+
